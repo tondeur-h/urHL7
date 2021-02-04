@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-package org.urhl7.igor;
+package org.urhl7.hl7;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,7 +79,7 @@ public class HL7RepeatingField implements GenericStructure, DelimitedStructure {
      * @return the success of the addition
      */
     public boolean addField(String data) {
-        return addField(Igor.field(data));
+        return addField(HL7.field(data));
     }
     
     /**

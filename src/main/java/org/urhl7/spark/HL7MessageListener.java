@@ -24,7 +24,7 @@
 
 package org.urhl7.spark;
 
-import org.urhl7.igor.HL7Structure;
+import org.urhl7.hl7.HL7Structure;
 
 /**
  * This listener interface will specify framework for behavior on particular HL7 Messages received.

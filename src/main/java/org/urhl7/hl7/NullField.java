@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-package org.urhl7.igor;
+package org.urhl7.hl7;
 
 /**
  * An NullField is a DataField that has no data, and no references to anything. However,

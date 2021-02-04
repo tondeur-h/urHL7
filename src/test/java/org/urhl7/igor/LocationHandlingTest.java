@@ -24,8 +24,9 @@
 
 package org.urhl7.igor;
 
-import org.urhl7.igor.HL7Structure;
-import org.urhl7.igor.Igor;
+import org.urhl7.hl7.DataField;
+import org.urhl7.hl7.HL7Structure;
+import org.urhl7.hl7.HL7;
 import java.util.*;
 import org.testng.annotations.Test;
 import static org.testng.Assert.*;
@@ -45,7 +46,7 @@ public class LocationHandlingTest {
            "NK1|1|MORGAN^JOE^^^^|SP||(315)555-5555~(315)555-4444||NK||||\r" +
            "ZZZ|||^^10&15^SAMPLE\r" +
            "ZRP|||ONE~TWO~THREE||\r";
-        HL7Structure struct = Igor.structure(origMsg);
+        HL7Structure struct = HL7.structure(origMsg);
 
         String finMsg = "MSH|^~\\&|IGOR|URHL7|URMC|ENGINE|201001111101||ADT^A13|61234_22333_DC|P|2.5.1||||||ASCII|\r"+
            "PID|1||1133445^^^IDX^MRN||MORGAN^DAVID^^^^||19871012|F||WH|123 MILL RD^^ROCHESTER^NY^14526^^^^||(585)555-5555||||||000-11-0000||||||||N|||N|\r"+

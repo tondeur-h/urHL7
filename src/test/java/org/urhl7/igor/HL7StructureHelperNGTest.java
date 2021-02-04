@@ -5,6 +5,11 @@
  */
 package org.urhl7.igor;
 
+import org.urhl7.hl7.DataField;
+import org.urhl7.hl7.HL7;
+import org.urhl7.hl7.HL7StructureHelper;
+import org.urhl7.hl7.HL7Structure;
+import org.urhl7.hl7.HL7Segment;
 import java.util.ArrayList;
 import java.util.List;
 import static org.testng.Assert.*;
@@ -35,7 +40,7 @@ public class HL7StructureHelperNGTest {
                         "OBX||NM|0002-4261^PVC^MDIL|0|0|0004-0aa0^bpm^MDIL|||||F\r" +
                         "OBX||NM|0002-4822^Pulse^MDIL|0|87|0004-0aa0^bpm^MDIL|||||F\r" +
                         "OBX||NM|0002-f081^SD NN^MDIL|0|3.00|0004-0aa0^bpm^MDIL|||||F\r";
-        message = Igor.structure(msg);
+        message = HL7.structure(msg);
     }
 
     /**

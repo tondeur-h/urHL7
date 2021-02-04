@@ -22,23 +22,23 @@
  * THE SOFTWARE.
  */
 
-package org.urhl7.igor;
+package org.urhl7.hl7;
 
 /**
- * Defines the required methods that will define what makes a DelimitedStructure
+ * A DataField is an interface that defines methods for accessing and setting an implementing data object's data. This interface
+ * provides a way to access any particular data object as a generic DataField.
  * @author dmorgan
  */
-public interface DelimitedStructure {
+public interface DataField extends GenericStructure, ChildElement {
+    /**
+     * Retrieve the underlying data for this data object.
+     * @return String representation of the data
+     */
+    public String getData();
 
     /**
-     * Returns the delimiter set for the implementing data object.
-     * @return delimiter array
+     * Set the underlying data for this data object.
+     * @param data a String representation of the data
      */
-    public char[] getDelims();
-
-    /**
-     * Changes the delims for the implementing data object
-     * @param delims delimiter set to use
-     */
-    public void changeDelims(char[] delims);
+    public void setData(String data);
 }

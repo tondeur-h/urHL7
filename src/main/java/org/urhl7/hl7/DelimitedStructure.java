@@ -22,24 +22,23 @@
  * THE SOFTWARE.
  */
 
-package org.urhl7.igor;
+package org.urhl7.hl7;
 
 /**
- * Enumeration to specify what types of rules can apply.
+ * Defines the required methods that will define what makes a DelimitedStructure
  * @author dmorgan
  */
-public enum Rule {
-    /**
-     * Rule test for existance
-     */
-    EXIST,
-    /**
-     * Rule test for existance as well as a value that is not null, or empty string
-     */
-    EXIST_NON_EMPTY,
-    /**
-     * Rule test for if a value is numeric (digits, and at most one decimal place).
-     */
-    NUMERIC
+public interface DelimitedStructure {
 
+    /**
+     * Returns the delimiter set for the implementing data object.
+     * @return delimiter array
+     */
+    public char[] getDelims();
+
+    /**
+     * Changes the delims for the implementing data object
+     * @param delims delimiter set to use
+     */
+    public void changeDelims(char[] delims);
 }

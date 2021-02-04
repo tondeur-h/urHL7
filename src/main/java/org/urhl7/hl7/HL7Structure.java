@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-package org.urhl7.igor;
+package org.urhl7.hl7;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -181,7 +181,7 @@ public class HL7Structure implements GenericStructure, DelimitedStructure {
      */
     public HL7Structure copy(boolean retainData) {
         String thisString = this.marshal();
-        HL7Structure newStruct = Igor.structure(thisString);
+        HL7Structure newStruct = HL7.structure(thisString);
         if (!retainData) {
             for(HL7Segment seg : newStruct.getSegments()) {
                 for(int i=0; i<seg.getRepeatingFields().size(); i++) {

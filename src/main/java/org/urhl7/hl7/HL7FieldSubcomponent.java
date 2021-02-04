@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-package org.urhl7.igor;
+package org.urhl7.hl7;
 
 import org.urhl7.utils.*;
 

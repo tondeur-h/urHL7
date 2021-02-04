@@ -22,27 +22,24 @@
  * THE SOFTWARE.
  */
 
-package org.urhl7.igor;
-
+package org.urhl7.hl7;
 
 /**
- * GenericStructure is an interface that defines marshal() and unmarshal(String) methods. Essentially forcing
- * any particular structure to be able to represent itself as a string, and rebuild itself based on a string.
+ * Enumeration to specify what types of rules can apply.
  * @author dmorgan
  */
-public interface GenericStructure {
-
+public enum Rule {
     /**
-     * Marshals all underlying data in this structure as a String.
-     * @return a String representation of this data.
-     */    
-    public String marshal();
-    
+     * Rule test for existance
+     */
+    EXIST,
     /**
-     * Unmarshals a String representation into this structure
-     * @param data a String representation of the data
-     */    
-    public void unmarshal(String data);
-
+     * Rule test for existance as well as a value that is not null, or empty string
+     */
+    EXIST_NON_EMPTY,
+    /**
+     * Rule test for if a value is numeric (digits, and at most one decimal place).
+     */
+    NUMERIC
 
 }

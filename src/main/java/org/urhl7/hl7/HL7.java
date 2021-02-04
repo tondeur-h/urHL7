@@ -22,16 +22,16 @@
  * THE SOFTWARE.
  */
 
-package org.urhl7.igor;
+package org.urhl7.hl7;
 
 /**
- * Igor is the main class that will begin the creation and using of relevent objects.
+ * HL7 is the main class that will begin the creation and using of relevent objects.
  * @author dmorgan
  */
-public class Igor {
+public class HL7 {
     private final static char[] DEFAULT_DELIMS = {'|', '^', '~', '\\', '&'};
 
-    private Igor() {}
+    private HL7() {}
 
 
     /**
@@ -76,7 +76,7 @@ public class Igor {
             //HL7Segment seg = structure.helper().getSegment("MSH");
             HL7Segment seg = structure.getSegment(0);
             for(int i=0; i<additionalFields; i++) {
-                seg.addRepeatingField(Igor.quickField());
+                seg.addRepeatingField(HL7.quickField());
             }
         }
         return structure;

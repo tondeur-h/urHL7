@@ -22,10 +22,10 @@
 
 package org.urhl7.utils;
 
+import org.urhl7.hl7.DataField;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.text.ParsePosition;
-import org.urhl7.igor.*;
 
 /**
  * A utility class that allows for conversion between various data types.

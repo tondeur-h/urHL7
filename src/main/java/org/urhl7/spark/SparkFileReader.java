@@ -25,8 +25,9 @@
 package org.urhl7.spark;
 
 import java.io.*;
-import org.urhl7.igor.Igor;
+import org.urhl7.hl7.HL7;
 import java.util.zip.*;
+import org.urhl7.hl7.HL7Structure;
 
 /**
  * A simple HL7 File reader that will use an event driven model that fires on each parsing of a message in the file.
@@ -169,7 +170,7 @@ public class SparkFileReader {
      * @return success of the parsing (if any of the messaceReceived(HL7Structure struct) calls return false, this will as well).
      * @throws java.io.IOException
      */
-    public boolean parse() throws java.io.IOException {
+    public boolean parseBatch() throws java.io.IOException {
         boolean success  = true;
         //FileReader fr = new FileReader(inputFile);
         
@@ -196,7 +197,7 @@ public class SparkFileReader {
 
             while (sb.indexOf(delimiter) != -1) {
                 message = sb.substring(0, sb.indexOf(delimiter)).toString();
-                success = success && listener.messageReceived(Igor.structure(new String(message)));
+                success = success && listener.messageReceived(HL7.structure(message));
                 if (message.length()+delimiter.length() <= sb.length()) {
                     sb.delete(0, message.length()+delimiter.length());
                 } else {
@@ -211,13 +212,37 @@ public class SparkFileReader {
         //final cleanup.
         if (!sb.toString().trim().equals("")) {
             message = sb.toString();
-            success = success && listener.messageReceived(Igor.structure(new String(message)));
+            success = success && listener.messageReceived(HL7.structure(new String(message)));
         }
 
         fr.close();
         return success;
     }
 
+    /**
+     * Begins parsing the messages in the file specified. This may throw an IOException and must be handled. The parse function reads in the file,
+     * when it finds a delimiter will attempt to parse the message. This message is then sent to the listener specified.
+     * @return success of the parsing (if any of the messaceReceived(HL7Structure struct) calls return false, this will as well).
+     * @throws java.io.IOException
+     */
+    public HL7Structure parse() throws java.io.IOException {
+        HL7Structure retour=null;
+        BufferedReader br= new BufferedReader(new FileReader(inputFile));
+       
+        String message = "";
+
+     message=br.readLine()+"\r";
+
+        while(br.ready()) {message=message+br.readLine()+"\r";}
+        
+        retour=HL7.structure(message);
+    
+        br.close();
+        return retour;
+    }
+
+    
+    
     /**
      * Gets the size of the internal buffer being used.
      * @return the INTERNAL_BUFFER_SIZE

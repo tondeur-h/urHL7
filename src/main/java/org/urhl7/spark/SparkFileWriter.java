@@ -24,9 +24,9 @@
 
 package org.urhl7.spark;
 
+import org.urhl7.hl7.HL7Structure;
 import java.io.*;
 import java.util.*;
-import org.urhl7.igor.*;
 
 /**
  * Allows the writing of HL7Structure messages to a specified file.

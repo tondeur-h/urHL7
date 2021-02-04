@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-package org.urhl7.igor;
+package org.urhl7.hl7;
 
 import org.urhl7.utils.*;
 import java.util.ArrayList;
@@ -223,7 +223,7 @@ public class HL7FieldComponent implements DataField, DelimitedStructure {
      * @return the success of the addition
      */
     public boolean addFieldSubcomponent(String data) {
-        return addFieldSubcomponent(Igor.subcomponent(data));
+        return addFieldSubcomponent(HL7.subcomponent(data));
     }
     
     /**

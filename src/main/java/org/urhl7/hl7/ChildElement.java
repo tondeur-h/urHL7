@@ -1,18 +1,16 @@
 /*
- * The MIT License
- *
- * Copyright (c) 2012 David Morgan, University of Rochester Medical Center
- *
+ * Copyright (c) 2011 David Morgan, University of Rochester Medical Center
+ * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * 
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- *
+ * 
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -22,23 +20,17 @@
  * THE SOFTWARE.
  */
 
-package org.urhl7.igor;
+package org.urhl7.hl7;
 
 /**
- * A DataField is an interface that defines methods for accessing and setting an implementing data object's data. This interface
- * provides a way to access any particular data object as a generic DataField.
+ * Interface that guarentees that an element is a child. Allows DataField to have a getParent() method.
  * @author dmorgan
  */
-public interface DataField extends GenericStructure, ChildElement {
+public interface ChildElement {
     /**
-     * Retrieve the underlying data for this data object.
-     * @return String representation of the data
+     * Allows every element to describe it's parent.
+     *
+     * @return The parent object of this element
      */
-    public String getData();
-
-    /**
-     * Set the underlying data for this data object.
-     * @param data a String representation of the data
-     */
-    public void setData(String data);
+    public Object getParent();
 }

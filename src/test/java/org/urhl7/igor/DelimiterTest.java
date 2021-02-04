@@ -24,8 +24,8 @@
 
 package org.urhl7.igor;
 
-import org.urhl7.igor.HL7Structure;
-import org.urhl7.igor.Igor;
+import org.urhl7.hl7.HL7Structure;
+import org.urhl7.hl7.HL7;
 import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
@@ -42,7 +42,7 @@ public class DelimiterTest {
            "NK1|1|MORGAN^BILL^^^^|SP||(315)555-5555||NK||||\r"+
            "NK1|1|MORGAN^JOE^^^^|SP||(3*5)555-5555~(315)555-4444||NK||||\r" +
            "ZZZ|||^2.1\\S\\-10^10&15^SAMPLE\r";
-        HL7Structure struct = Igor.structure(origMsg);
+        HL7Structure struct = HL7.structure(origMsg);
         
 
         String finMsg = "MSH|*~\\`|FLOWCAST|IDX|URMC^12|ENGINE|201001111101||ADT*A13|61234_22333_DC|P|2.3||||||ASCII|\r"+
