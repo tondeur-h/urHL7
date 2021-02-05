@@ -31,7 +31,7 @@ import java.util.ArrayList;
  * @author dmorgan
  */
 public class StringHelper {
-    private StringHelper() {}
+    public StringHelper() {}
     /**
      * Operates a lot like the split function on String, but does not require the delimiter to be
      * a regular expression (this does not matter much, except when dynamically loading the delim
